@@ -6,6 +6,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 
 # groq-llama2-70b-chat
@@ -35,17 +36,32 @@ with_message_history = RunnableWithMessageHistory(model,get_session_history)
 
 config = {"configurable":{"session_id":"chat1"}}
 
+# response = with_message_history.invoke(
+#     [HumanMessage(content="Hi, my name is sahil and I am a Chief AI Engineer")],
+#     config=config)
+
+# print("AI: ",response.content)
+
 response = with_message_history.invoke(
-    [HumanMessage(content="Hi, my name is sahil and I am a Chief AI Engineer")],
+    [HumanMessage(content="what's my name and what do I do?")],
     config=config)
 
-print(response)
+# print("AI: ",response.content)
 
 
+## prompt templates
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system","You are a helpful assistant. Answer the question to the best of your ability."),
+        MessagesPlaceholder(variable_name="messages"),
+    ]
+)
 
+chain = prompt | model
 
+res = chain.invoke({'messages': [HumanMessage(content="Hi my name is sahil")]})
 
-
+print(res)
 
 
 
