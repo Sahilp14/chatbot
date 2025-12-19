@@ -1,6 +1,10 @@
 langchain
 python-dotenv
 langchain-community
+langchain-groq
+transformers
+pandas
+langchain_chroma
 # pypdf
 # bs4
 # arxiv
@@ -11,12 +15,8 @@ langchain-community
 # sentence_transformers
 # langchain_huggingface
 # faiss-cpu
-# langchain_chroma
 # duckdb
-pandas
 # openai
-langchain-groq
-transformers
 # duckduckgo_search==5.3.1b1
 # pymupdf
 # mysql-connector-python
