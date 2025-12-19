@@ -5,15 +5,15 @@ langchain-groq
 transformers
 pandas
 langchain_chroma
+chromadb
+langchain_huggingface
+sentence_transformers
 # pypdf
 # bs4
 # arxiv
 # wikipedia
 # langchain-text-splitters
 # langchain-openai
-# chromadb
-# sentence_transformers
-# langchain_huggingface
 # faiss-cpu
 # duckdb
 # openai
@@ -28,9 +28,3 @@ langchain_chroma
 # numexpr
 # huggingface_hub
 # streamlit
-
-
-
-
-
-
