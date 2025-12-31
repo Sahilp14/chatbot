@@ -9,8 +9,18 @@ chromadb
 langchain_huggingface
 sentence_transformers
 bs4
-ipykernel
-
+streamlit
+arxiv
+pymupdf
+duckduckgo-search
+faiss-cpu
+sentence_transformers
+langchain-text-splitters
+wikipedia
+duckdb
+pytube
+numexpr
+pypdf
 
 
 
