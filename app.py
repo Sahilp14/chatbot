@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 from langchain_chroma import Chroma
 from langchain_groq import ChatGroq
@@ -18,8 +18,9 @@ from langchain_core.runnables import RunnableLambda
 
 
 # ------------------ ENV SETUP ------------------
-load_dotenv()
-hf_token = os.getenv("HF_TOKEN")
+# load_dotenv()
+api_key = st.secrets["GROQ_API_KEY"]
+hf_token = st.secrets["HF_TOKEN"]
 
 embeddings = HuggingFaceEmbeddings(
     model_name="all-MiniLM-L6-v2"
@@ -29,11 +30,11 @@ embeddings = HuggingFaceEmbeddings(
 st.title("Conversational RAG with PDF")
 st.write("Upload PDFs and chat with their content")
 
-api_key = st.text_input("Enter your Groq API Key", type="password")
+# api_key = st.text_input("Enter your Groq API Key", type="password")
 
-if not api_key:
-    st.warning("Please enter the Groq API key")
-    st.stop()
+# if not api_key:
+#     st.warning("Please enter the Groq API key")
+#     st.stop()
 
 llm = ChatGroq(
     groq_api_key=api_key,
